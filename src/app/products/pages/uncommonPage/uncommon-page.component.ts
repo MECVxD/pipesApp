@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { interval } from 'rxjs';
 
 @Component({
-  selector: 'app-no-comunes',
-  templateUrl: './no-comunes.component.html',
+  selector: 'products-uncommon-page',
+  templateUrl: './uncommon-page.component.html',
   styles: [],
 })
-export class NoComunesComponent {
+export class UncommonPageComponent {
   // i18nSelect
   public nombre: string = 'Mauricio';
   public genero: string = 'masculino';

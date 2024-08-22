@@ -1,28 +1,33 @@
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LOCALE_ID, NgModule } from '@angular/core';
 
-import { AppRouterModule } from './app-router.module';
-import { SharedModule } from './shared/shared.module';
-import { VentasModule } from './ventas/ventas.module';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { SharedModule } from './shared/shared.module';
 
 //Cambiar el locale de la app
 import localEs from '@angular/common/locales/es-MX';
 import localFr from '@angular/common/locales/fr';
+
 import { registerLocaleData } from '@angular/common';
+import { PrimeNgModule } from './prime-ng/prime-ng.module';
+import { ProductsModule } from './products/products.module';
+
 registerLocaleData(localEs);
 registerLocaleData(localFr);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
-    BrowserModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
-    AppRouterModule,
+    BrowserModule,
+    PrimeNgModule,
     SharedModule,
-    VentasModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-MX' }],
   bootstrap: [AppComponent],
