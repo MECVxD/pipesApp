@@ -128,7 +128,6 @@
       }
     }
   },
-  "defaultProject": "pipesApp",
   "cli": {
     "analytics": "a0cf7503-6745-4379-b8b2-27431eeb8cdc"
   }
