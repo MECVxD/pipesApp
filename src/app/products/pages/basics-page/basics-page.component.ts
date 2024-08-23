@@ -4,11 +4,10 @@ import { Component, OnInit } from '@angular/core';
   selector: 'products-basics-page',
   templateUrl: './basics-page.component.html',
 })
-export class BasicsPageComponent implements OnInit {
+export class BasicsPageComponent {
+  public nameLower: string = 'mauricio';
+  public nameUpper: string = 'Mauricio';
+  public fullName: string = 'mAuRiCiO cOvArRuBiAs';
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  public customDate: Date = new Date();
 }

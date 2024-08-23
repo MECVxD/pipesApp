@@ -7,16 +7,17 @@ import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
 
-//Cambiar el locale de la app
-import localEs from '@angular/common/locales/es-MX';
-import localFr from '@angular/common/locales/fr';
+//Configuración del locale de la app
+import localeEsMX from '@angular/common/locales/es-MX';
+import localeEsHN from '@angular/common/locales/es-HN';
+import localeFr from '@angular/common/locales/fr';
 
 import { registerLocaleData } from '@angular/common';
-import { PrimeNgModule } from './prime-ng/prime-ng.module';
 import { ProductsModule } from './products/products.module';
 
-registerLocaleData(localEs);
-registerLocaleData(localFr);
+registerLocaleData(localeEsMX);
+registerLocaleData(localeEsHN);
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
@@ -26,7 +27,6 @@ registerLocaleData(localFr);
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    PrimeNgModule,
     SharedModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-MX' }],

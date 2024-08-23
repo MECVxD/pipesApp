@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { interval } from 'rxjs';
+import { interval, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'products-uncommon-page',
@@ -8,58 +9,46 @@ import { interval } from 'rxjs';
 })
 export class UncommonPageComponent {
   // i18nSelect
-  public nombre: string = 'Mauricio';
-  public genero: string = 'masculino';
-  public invitacionMapa: any = {
-    masculino: 'invitarlo',
-    femenino: 'invitarla',
+  public name: string = 'Mauricio';
+  public gender: 'male' | 'female' = 'male';
+  public invitationMap: any = {
+    male: 'invitarlo',
+    female: 'invitarla',
   };
   // i18nPlural
-  public clientes: string[] = ['Maria', 'Pedro', 'Juan'];
-  public clientesMapa: any = {
+  public clients: string[] = ['Maria', 'Pedro', 'Juan', 'Luis', 'Jose', 'Emilio'];
+  public clientsMap: any = {
     '=0': 'no tenemos ningun cliente esperando.',
     '=1': 'tenemos un cliente esperando.',
     other: 'tenemos # clientes esperando.',
   };
 
-  public cambiarCliente() {
-    this.nombre = 'Maki';
-    this.genero = 'femenino';
+  public changeClient() {
+    this.name = 'Maki';
+    this.gender = 'female';
   }
 
-  public borrarCliente() {
-    this.clientes.pop();
+  public deleteClient() {
+    this.clients.shift();
   }
 
   // KeyValue Pipe
-  public persona: any = {
-    nombre: 'Mauricio',
-    edad: 35,
-    direccion: 'Yucatan',
+  public person: any = {
+    name: 'Mauricio',
+    age: 35,
+    address: 'Yucatan',
   };
 
-  // JsonPipe
-  public heroes = [
-    {
-      nombre: 'superman',
-      vuela: true,
-    },
-    {
-      nombre: 'Robin',
-      vuela: false,
-    },
-    {
-      nombre: 'Aquaman',
-      vuela: false,
-    },
-  ];
-
   //Async Pipe
-  public miObservable = interval(5000);
+  public myObservableTimer: Observable<number> = interval(5000).pipe(
+    tap(value => console.log('tap', value)),
+  );
 
-  public valorPromesa = new Promise((resolve, reject) => {
+  public promiseValue: Promise<string> = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('Tenemos data de promesa');
+      console.log('Tenemos data en la promesa.');
+      this.person.name = 'Otro nombre';
     }, 3500);
   });
 }

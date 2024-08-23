@@ -10,14 +10,14 @@ const routes: Routes = [
     path: '',
     component: BasicsPageComponent
   },
-  // {
-  //   path: 'numbers',
-  //   component: NumbersPageComponent,
-  // },
-  // {
-  //   path: 'uncommon',
-  //   component: UncommonPageComponent,
-  // },
+  {
+    path: 'numbers',
+    component: NumbersPageComponent,
+  },
+  {
+    path: 'uncommon',
+    component: UncommonPageComponent,
+  },
   {
     path: '**',
     redirectTo: ''
